@@ -333,18 +333,15 @@ This generates and runs:
 ### Manual Testing
 
 ```bash
-# Run all tests for an agent
+# Run all framework tests
+PYTHONPATH=core python -m pytest core/tests
+
+# Run all tests for a specific agent
 PYTHONPATH=core:exports python -m agent_name test
 
-# Run specific test type
+# Run specific test type for an agent
 PYTHONPATH=core:exports python -m agent_name test --type constraint
 PYTHONPATH=core:exports python -m agent_name test --type success
-
-# Run with parallel execution
-PYTHONPATH=core:exports python -m agent_name test --parallel 4
-
-# Fail fast (stop on first failure)
-PYTHONPATH=core:exports python -m agent_name test --fail-fast
 ```
 
 ### Writing Custom Tests

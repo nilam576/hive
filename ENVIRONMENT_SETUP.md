@@ -269,6 +269,17 @@ PYTHONPATH=core:exports python -m your_agent_name demo
 cd core && pip install -e .
 ```
 
+### "ModuleNotFoundError: No module named 'core'" when running pytest
+
+**Cause:** pytest cannot find the package root when run from inside subdirectories without PYTHONPATH.
+
+**Solution:** Always run pytest from the project root with `PYTHONPATH=core`:
+
+```bash
+# Correct way to run framework tests
+PYTHONPATH=core python -m pytest core/tests
+```
+
 ### "ModuleNotFoundError: No module named 'aden_tools'"
 
 **Solution:** Install the tools package:
